@@ -22,7 +22,7 @@ Highlights
     - I have implemented a simple ORM package in Go for PostgreSQL.
 * Experienced in Linux/Unix
     - I started using Solaris in my first company.
-    - I program with a laptop with Ubuntu 13.10 everyday.
+    - I program with a laptop with Ubuntu everyday (Now it is 14.04).
 * Life-long learner
     - I'm always eager to learn new technologies, and pick up unfamiliar
       knowledge quickly.
