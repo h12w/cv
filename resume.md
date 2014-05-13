@@ -29,11 +29,11 @@ Highlights
 
 Recent Projects
 ---------------
-* OGDL: a simple and extensible replacement for JSON. (github.com/ogdl)
-* GSpec: a concurrent, minimal, extensible and reliable testing framework in Go.
-* CWrap: go wrapper generator that parses C headers and generates a Go wrapper.
-* html-query: a fluent and functional approach to querying HTML DOM.
-* SOCKS: A SOCKS (SOCKS4, SOCKS4A and SOCKS5) Proxy Package for Go.
+* [OGDL](https://github.com/ogdl): a simple and extensible replacement for JSON.
+* [GSpec](https://github.com/hailiang/gspec): a concurrent, minimal, extensible and reliable testing framework in Go.
+* [CWrap](https://github.com/hailiang/cwrap): go wrapper generator that parses C headers and generates a Go wrapper.
+* [html-query](https://github.com/hailiang/html-query): a fluent and functional approach to querying HTML DOM.
+* [SOCKS](https://github.com/hailiang/socks): A SOCKS (SOCKS4, SOCKS4A and SOCKS5) Proxy Package for Go.
 
 Experience
 ----------
