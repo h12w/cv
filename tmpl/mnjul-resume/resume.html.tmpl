@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="dep/normalize.css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="dep/Font-Awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body lang="en">
+    <div id="grid-container">
+      <header id="title">
+        <h1>{{.Basics.Name}}</h1>
+        <span class="subtitle"></span>
+        <p class="summary">{{.Basics.Summary}}</p>
+      </header>
+      <div id="limbo">
+      </div>
+      <section id="main">
+        <section class="main-block">
+          <h2>
+            <i class="fa fa-briefcase"></i> {{.Headings.Work}}
+          </h2>
+          {{- range .Work}}
+          <section class="blocks">
+            <div class="date">
+              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+            </div>
+            <div class="decorator">
+            </div>
+            <div class="details">
+              <header>
+                <h3>{{.Position}}</h3>
+                <span class="place">{{.Company}}</span>
+                <span class="location">{{.Location}}</span>
+              </header>
+              <div>
+                <ul>
+                  {{- range .Highlights}}
+                  <li>{{.}}</li>
+                  {{- end -}}
+                </ul>
+                </div>
+            </div>
+          </section>
+          {{- end -}}
+        </section>
+        <section class="main-block">
+          <h2>
+            <i class="fa fa-github"></i>{{.Headings.Projects}}
+          </h2>
+          {{- range .Projects}}
+          <section class="blocks">
+            <div class="date">
+            {{- if eq .StartDate .EndDate}}
+              <span>{{.StartDate}}</span>
+            {{- else -}}
+              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+            </div>
+            {{- end -}}
+            </div>
+            <div class="decorator">
+            </div>
+            <div class="details">
+              <header>
+                <h3>{{.Name}}</h3>
+                <span class="place">{{.URL}}</span>
+              </header>
+              <div>
+                <ul>
+                  {{- range .Highlights}}
+                  <li>{{.}}</li>
+                  {{- end -}}
+                </ul>
+              </div>
+            </div>
+          </section>
+          {{- end -}}
+        </section>
+        <section class="main-block concise">
+          <h2>
+            <i class="fa fa-graduation-cap"></i> {{.Headings.Education}}
+          </h2>
+          {{- range .Education}}
+          <section class="blocks">
+            <div class="date">
+              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+            </div>
+            <div class="decorator">
+            </div>
+            <div class="details">
+              <header>
+                <h3>{{.StudyType}}</h3>
+                <span class="place">{{.Institution}}</span>
+                {{- if ne .Location ""}}
+                <span class="location">{{.Location}}</span>
+                {{- end -}}
+              </header>
+              <div>{{.Area}}</div>
+            </div>
+          </section>
+          {{- end -}}
+        </section>
+      </section>
+      <aside id="sidebar">
+        <div class="side-block" id="contact">
+          <h1>
+            Contact Info
+          </h1>
+          <ul>
+            <li><i class="fa fa-envelope"></i>{{.Basics.Email}}</li>
+            <li><i class="fa fa-phone"></i>{{.Basics.Phone}}</li>
+            <li><i class="fa fa-globe"></i>{{.Basics.Website}}</li>
+            <li><i class="fa fa-linkedin"></i>{{.Basics.Linkedin}}</li>
+          </ul>
+        </div>
+        <div class="side-block" id="skills">
+          <h1>
+            {{.Headings.Skills}}
+          </h1>
+          {{- range .Skills}}
+          <ul>
+            <li>{{.Name}}</li>
+            {{- range .Keywords}}
+            <li>{{.}}</li>
+            {{- end -}}
+          </ul>
+          {{- end -}}
+        </div>
+        <div class="side-block" id="disclaimer">
+          Powered by <code>h12.io/cv</code>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

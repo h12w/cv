@@ -1,1 +1,1 @@
-To view my résumé, click [HERE](resume.md).
+To view my résumé, click [HERE](https://h12.io/resume).
