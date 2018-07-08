@@ -27,6 +27,7 @@
   --date-block-width: 0.6in;
 
   --main-blocks-title-icon-offset-left: -19pt;
+  --section-color: rgb(29,133,184);
 }
 
 body{
@@ -136,7 +137,8 @@ li{
   left: calc((var(--date-block-width) + var(--decorator-horizontal-margin)));
   font-weight: 400;
   font-size: 13pt;
-  color: #555;
+  /* color: #555; */
+  color: var(--section-color);
 }
 
 #main h2 > i{
@@ -362,6 +364,7 @@ li{
   font-weight: 400;
   font-size: 13pt;
   text-transform: uppercase;
+  color: var(--section-color);
 }
 
 #contact ul{
