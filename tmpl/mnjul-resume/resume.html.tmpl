@@ -63,15 +63,13 @@
             <div class="details">
               <header>
                 <h3>{{.Name}}</h3>
-                <span class="place">{{.URL}}</span>
+                <span class="project-url">{{.URL}}</span>
               </header>
-              <div>
-                <ul>
-                  {{- range .Highlights}}
-                  <li>{{.}}</li>
-                  {{- end -}}
-                </ul>
-              </div>
+              <ul>
+                {{- range .Highlights}}
+                <li>{{.}}</li>
+                {{- end -}}
+              </ul>
             </div>
           </section>
           {{- end -}}
