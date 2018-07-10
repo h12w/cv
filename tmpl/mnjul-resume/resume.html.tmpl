@@ -105,10 +105,10 @@
             Contact Info
           </h1>
           <ul>
-            <li><i class="fa fa-envelope"></i>{{.Basics.Email}}</li>
-            <li><i class="fa fa-phone"></i>{{.Basics.Phone}}</li>
-            <li><i class="fa fa-globe"></i>{{.Basics.Website}}</li>
-            <li><i class="fa fa-linkedin"></i>{{.Basics.Linkedin}}</li>
+            <li><i class="contact fa fa-envelope"></i>{{.Basics.Email}}</li>
+            <li><i class="contact fa fa-phone"></i>{{.Basics.Phone}}</li>
+            <li><i class="contact fa fa-globe"></i>{{.Basics.Website}}</li>
+            <li><i class="contact fa fa-linkedin"></i>{{.Basics.Linkedin}}</li>
           </ul>
         </div>
         <div class="side-block" id="skills">
@@ -117,7 +117,7 @@
           </h1>
           {{- range .Skills}}
           <ul>
-            <li>{{.Name}}</li>
+            <li class="skill-name">{{.Name}}</li>
             {{- range .Keywords}}
             <li>{{.}}</li>
             {{- end -}}
