@@ -17,7 +17,7 @@
   --sidebar-horizontal-padding: 0.3in;
 
   /* XXX: using px for very good precision control */
-  --decorator-outer-offset-top: 10px;
+  --decorator-outer-offset-top: 12px;
   --decorator-outer-offset-left: -5.5px;
   --decorator-border-width: 1px;
   --decorator-outer-dim: 9px;
@@ -59,7 +59,7 @@ li{
   grid-row: 1/span 1;
   margin-top: 0.45in;
   margin-left: 0.75in;
-  margin-bottom: 0.35in;
+  margin-bottom: 0.20in;
 }
 #limbo{
   grid-column: 2/span 1;
@@ -137,6 +137,7 @@ li{
   font-size: 13pt;
   /* color: #555; */
   color: var(--section-color);
+  margin-top: 18pt;
 }
 
 #main h2 > i{
@@ -150,7 +151,7 @@ li{
 }
 
 #main h2::after{ /* extends the decorator line */
-  height: calc(var(--row-blocks-padding-top) * 2);
+  height: calc(var(--row-blocks-padding-top) * 4.2);
   position: relative;
   top: calc(-1 * var(--row-blocks-padding-top));
   /* XXX: 0.5px for aligning fx printing */
@@ -165,7 +166,8 @@ li{
 
 /**** minor tweaks on the icon fonts ****/
 #main h2 > .fa-briefcase{
-  top: 2.5pt;
+  top: 3.5pt;
+  font-size: 12.5pt;
 }
 
 #main h2 > .fa-github{
@@ -176,7 +178,7 @@ li{
 #main h2 > .fa-graduation-cap{
   left: calc(var(--main-blocks-title-icon-offset-left) - 2pt);
   top: 3pt;
-  font-size: 13pt;
+  font-size: 13.5pt;
 }
 
 #main h2 > .fa-folder-open{
@@ -366,6 +368,8 @@ li{
   font-size: 13pt;
   text-transform: uppercase;
   color: var(--section-color);
+  margin-top: 18pt;
+  margin-bottom: 18pt;
 }
 
 .contact.fa {
