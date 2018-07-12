@@ -61,6 +61,8 @@ type (
 		Website  string    `json:"website"`
 		Linkedin string    `json:"linkedin"`
 		Summary  string    `json:"summary"`
+		Skype    string    `json:"skype"`
+		Github   string    `json:"github"`
 		Location Location  `json:"location"`
 		Profiles []Profile `json:"profiles"`
 	}

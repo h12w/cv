@@ -399,6 +399,25 @@ li{
   text-align: right;
 }
 
+
+#contact li > .fa-skype{
+  position: relative;
+  top: 1pt;
+  font-size: 12pt;
+}
+
+#contact li > .fa-globe{
+  position: relative;
+  top: 0.5pt;
+  font-size: 11pt;
+}
+
+#contact li > .fa-github{
+  position: relative;
+  top: 1pt;
+  font-size: 11pt;
+}
+
 #skills{
   line-height: 1.5;
 }
