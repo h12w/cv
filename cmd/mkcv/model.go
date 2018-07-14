@@ -61,10 +61,14 @@ type (
 		Website  string    `json:"website"`
 		Linkedin string    `json:"linkedin"`
 		Summary  string    `json:"summary"`
-		Skype    string    `json:"skype"`
+		Skype    Skype     `json:"skype"`
 		Github   string    `json:"github"`
 		Location Location  `json:"location"`
 		Profiles []Profile `json:"profiles"`
+	}
+	Skype struct {
+		Email string `json:"email"`
+		ID    string `json:"id"`
 	}
 	Location struct {
 		Address     string `json:"address"`

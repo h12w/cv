@@ -63,7 +63,7 @@
             <div class="details">
               <header>
                 <h3>{{.Name}}</h3>
-                <span class="project-url">{{.URL}}</span>
+                <span class="project-url"><a href="https://{{.URL}}">{{.URL}}</a></span>
               </header>
               <ul>
                 {{- range .Highlights}}
@@ -105,12 +105,11 @@
             Contact Info
           </h1>
           <ul>
-            <li><i class="contact fa fa-envelope"></i>{{.Basics.Email}}</li>
-            <li><i class="contact fa fa-skype"></i>{{.Basics.Skype}}</li>
-            <li><i class="contact fa fa-phone"></i>{{.Basics.Phone}}</li>
-            <li><i class="contact fa fa-globe"></i>{{.Basics.Website}}</li>
-            <li><i class="contact fa fa-github"></i>{{.Basics.Github}}</li>
-            <li><i class="contact fa fa-linkedin"></i>{{.Basics.Linkedin}}</li>
+            <li><i class="contact fa fa-envelope"></i><a href="mailto:{{.Basics.Email}}">{{.Basics.Email}}</a></li>
+            <li><i class="contact fa fa-skype"></i><a href="skype:{{.Basics.Skype.ID}}?chat">{{.Basics.Skype.Email}}</a></li>
+            <li><i class="contact fa fa-globe"></i><a href="https://{{.Basics.Website}}">{{.Basics.Website}}</a></li>
+            <li><i class="contact fa fa-github"></i><a href="https://{{.Basics.Github}}">{{.Basics.Github}}</a></li>
+            <li><i class="contact fa fa-linkedin"></i><a href="https://www.linkedin.com/in/{{.Basics.Linkedin}}">{{.Basics.Linkedin}}</a></li>
           </ul>
         </div>
         <div class="side-block" id="skills">
