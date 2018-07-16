@@ -20,14 +20,17 @@ type (
 	Reference struct {
 		Name      string `json:"name"`
 		Reference string `json:"reference"`
+		Hidden    bool   `json:"hidden"`
 	}
 	Language struct {
-		Name  string `json:"name"`
-		Level string `json:"level"`
+		Name   string `json:"name"`
+		Level  string `json:"level"`
+		Hidden bool   `json:"hidden"`
 	}
 	Interest struct {
 		Name     string   `json:"name"`
 		Keywords []string `json:"keywords"`
+		Hidden   bool     `json:"hidden"`
 	}
 	Publication struct {
 		Name        string `json:"name"`
@@ -35,6 +38,7 @@ type (
 		ReleaseDate string `json:"releaseDate"`
 		Website     string `json:"website"`
 		Summary     string `json:"summary"`
+		Hidden      bool   `json:"hidden"`
 	}
 	Volunteer struct {
 		Organization string   `json:"organization"`
@@ -44,6 +48,7 @@ type (
 		EndDate      string   `json:"endDate"`
 		Summary      string   `json:"summary"`
 		Highlights   []string `json:"highlights"`
+		Hidden       bool     `json:"hidden"`
 	}
 	Headings struct {
 		Projects  string `json:"projects"`
@@ -91,6 +96,7 @@ type (
 		EndDate     string   `json:"endDate"`
 		GPA         string   `json:"gpa"`
 		Courses     []string `json:"courses"`
+		Hidden      bool     `json:"hidden"`
 	}
 	Work struct {
 		Position   string   `json:"position"`
@@ -100,11 +106,13 @@ type (
 		StartDate  string   `json:"startDate"`
 		EndDate    string   `json:"endDate"`
 		Highlights []string `json:"highlights"`
+		Hidden     bool     `json:"hidden"`
 	}
 	Skill struct {
 		Name     string   `json:"name"`
 		Level    string   `json:"level"`
 		Keywords []string `json:"keywords"`
+		Hidden   bool     `json:"hidden"`
 	}
 	Project struct {
 		Name       string   `json:"name"`
@@ -114,11 +122,13 @@ type (
 		URL        string   `json:"url"`
 		Keywords   []string `json:"keywords"`
 		Highlights []string `json:"highlights"`
+		Hidden     bool     `json:"hidden"`
 	}
 	Award struct {
 		Title   string `json:"title"`
 		Date    string `json:"date"`
 		Awarder string `json:"awarder"`
 		Summary string `json:"summary"`
+		Hidden  bool   `json:"hidden"`
 	}
 )

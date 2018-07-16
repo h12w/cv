@@ -21,6 +21,7 @@
             <i class="fa fa-briefcase"></i> {{.Headings.Work}}
           </h2>
           {{- range .Work}}
+          {{- if not .Hidden}}
           <section class="blocks">
             <div class="date">
               <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
@@ -43,12 +44,14 @@
             </div>
           </section>
           {{- end -}}
+          {{- end -}}
         </section>
         <section class="main-block">
           <h2>
             <i class="fa fa-github"></i>{{.Headings.Projects}}
           </h2>
           {{- range .Projects}}
+          {{- if not .Hidden}}
           <section class="blocks">
             <div class="date">
             {{- if eq .StartDate .EndDate}}
@@ -73,12 +76,14 @@
             </div>
           </section>
           {{- end -}}
+          {{- end -}}
         </section>
         <section class="main-block concise">
           <h2>
             <i class="fa fa-graduation-cap"></i> {{.Headings.Education}}
           </h2>
           {{- range .Education}}
+          {{- if not .Hidden}}
           <section class="blocks">
             <div class="date">
               <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
@@ -96,6 +101,7 @@
               <div>{{.Area}}</div>
             </div>
           </section>
+          {{- end -}}
           {{- end -}}
         </section>
       </section>
@@ -117,12 +123,14 @@
             {{.Headings.Skills}}
           </h1>
           {{- range .Skills}}
+          {{- if not .Hidden}}
           <ul>
             <li class="skill-name">{{.Name}}</li>
             {{- range .Keywords}}
             <li>{{.}}</li>
             {{- end -}}
           </ul>
+          {{- end -}}
           {{- end -}}
         </div>
         <div class="side-block" id="disclaimer">
