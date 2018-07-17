@@ -17,6 +17,8 @@
 
   --sidebar-horizontal-padding: 0.3in;
 
+  --body-font-size: 10.5pt;
+
   /* XXX: using px for very good precision control */
   --decorator-outer-offset-top: 12px;
   --decorator-outer-offset-left: -5.5px;
@@ -87,13 +89,13 @@ li{
 
 #main{
   width: 100%;
-  font-size: 10pt;
+  font-size: var(--body-font-size);
 }
 
 #sidebar{
   width: 100%;
   background-color: var(--sidebar-color);
-  font-size: 10pt;
+  font-size: var(--body-font-size);
 }
 #limbo{
   background-color: var(--sidebar-color);
@@ -123,14 +125,14 @@ li{
 }
 
 .subtitle{
-  font-size: 10pt;
+  font-size: var(--body-font-size);
 }
 
 #title .summary{
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 0.25in;
-  font-size: 10pt;
+  font-size: var(--body-font-size);
   font-weight: 400;
   letter-spacing: 1px;
   text-align: justify;
@@ -224,7 +226,7 @@ li{
   top: 1pt;
   right: 5.5pt;
   display: block;
-  height: 10pt;
+  height: var(--body-font-size);
   content: '|';
 }
 
@@ -316,7 +318,7 @@ li{
 }
 
 .project-url {
-  font-size: 10pt;
+  font-size: var(--body-font-size);
   padding-top: 0.1in;
 }
 
