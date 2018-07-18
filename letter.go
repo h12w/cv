@@ -8,6 +8,7 @@ type (
 	Job struct {
 		Company   Company   `json:"company"`
 		Position  string    `json:"position"`
+		Location  string    `json:"location"`
 		Recruiter Recruiter `json:"recruiter"`
 		Channel   string    `json:"channel"`
 	}
