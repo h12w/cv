@@ -1,4 +1,6 @@
-package main
+package cv
+
+import "fmt"
 
 // https://jsonresume.org/schema/
 type (
@@ -21,6 +23,11 @@ type (
 		Name      string `json:"name"`
 		Reference string `json:"reference"`
 		Hidden    bool   `json:"hidden"`
+	}
+	Name struct {
+		First  string `json:"first"`
+		Nick   string `json:"nick"`
+		Second string `json:"second"`
 	}
 	Language struct {
 		Name   string `json:"name"`
@@ -58,7 +65,7 @@ type (
 		Skills    string `json:"skills"`
 	}
 	Basics struct {
-		Name     string    `json:"name"`
+		Name     Name      `json:"name"`
 		Label    string    `json:"label"`
 		Picture  string    `json:"picture"`
 		Email    string    `json:"email"`
@@ -132,3 +139,10 @@ type (
 		Hidden  bool   `json:"hidden"`
 	}
 )
+
+func (n Name) String() string {
+	if n.Nick != "" {
+		return fmt.Sprintf(`%s "%s" %s`, n.First, n.Nick, n.Second)
+	}
+	return n.First + " " + n.Second
+}

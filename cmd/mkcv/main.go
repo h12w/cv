@@ -1,33 +1,30 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"log"
 	"os"
+	"path"
 	"text/template"
+
+	"h12.io/cv"
 )
 
 type options struct {
 	Template string
-	JSON     string
+	CV       string
 	Output   string
 }
 
 func main() {
 	var opt options
 	flag.StringVar(&opt.Template, "template", "resume.html.tmpl", "template filename")
-	flag.StringVar(&opt.JSON, "json", "resume.json", "resume JSON filename")
+	flag.StringVar(&opt.CV, "cv", path.Join(cv.DefaultDataPath, "resume.json"), "resume JSON filename")
 	flag.StringVar(&opt.Output, "output", "resume.html", "resume HTML filename")
 	flag.Parse()
 
-	jsonFile, err := os.Open(opt.JSON)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer jsonFile.Close()
-	var cv CV
-	if err := json.NewDecoder(jsonFile).Decode(&cv); err != nil {
+	var cvData cv.CV
+	if err := cv.JSON(opt.CV, &cvData); err != nil {
 		log.Fatal(err)
 	}
 	tmpl, err := template.ParseFiles(opt.Template)
@@ -39,7 +36,7 @@ func main() {
 		log.Fatal(err)
 	}
 	defer output.Close()
-	if err := tmpl.Execute(output, &cv); err != nil {
+	if err := tmpl.Execute(output, &cvData); err != nil {
 		log.Fatal(err)
 	}
 }
