@@ -3,6 +3,7 @@ h12.io/cv
 
 An HTML CV generator in Go that suports:
 * JSON Resume data format
+* Markdown text fields
 * Go text/template
 
 Usage

@@ -1,12 +1,15 @@
 package main
 
 import (
+	"bytes"
 	"flag"
+	"fmt"
+	"html/template"
 	"log"
 	"os"
 	"path"
-	"text/template"
 
+	"gopkg.in/russross/blackfriday.v2"
 	"h12.io/cv"
 )
 
@@ -27,7 +30,8 @@ func main() {
 	if err := cv.JSON(opt.CV, &cvData); err != nil {
 		log.Fatal(err)
 	}
-	tmpl, err := template.ParseFiles(opt.Template)
+
+	tmpl, err := template.New(opt.Template).Funcs(template.FuncMap{"markdown": markdown}).ParseFiles(opt.Template)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -39,4 +43,12 @@ func main() {
 	if err := tmpl.Execute(output, &cvData); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func markdown(args ...interface{}) template.HTML {
+	s := blackfriday.Run([]byte(fmt.Sprint(args...)))
+	s = bytes.TrimSpace(s)
+	s = bytes.TrimPrefix(s, []byte("<p>"))
+	s = bytes.TrimSuffix(s, []byte("</p>"))
+	return template.HTML(s)
 }
