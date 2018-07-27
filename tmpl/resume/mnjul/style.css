@@ -111,6 +111,7 @@ li{
 
 #title{
   line-height: 1.2;
+  margin-bottom: 0.75in;
 }
 
 #title h1{
@@ -291,21 +292,15 @@ li{
 .details h3{
   font-size: 11pt;
   font-weight: 600;
-  margin-bottom: 0.02in;
+  margin-bottom: 0.04in;
 }
 
-.main-block:not(.concise) .details div{
-  margin: 0.18in 0 0.1in 0; 
+.main-block .details div{
+  margin: 0.0in 0 0.0in 0; 
 }
 
-.main-block:not(.concise) .blocks:last-child .details div{
+.main-block .blocks:last-child .details div{
   margin-bottom: 0;
-}
-
-.main-block.concise .details div:not(.concise){
-  /* use padding to work around the fact that margin doesn't affect floated
-     neighboring elements */
-  padding: 0.05in 0 0.07in 0;
 }
 
 .details .place{
@@ -320,7 +315,6 @@ li{
 
 .project-url {
   font-size: var(--body-font-size);
-  padding-top: 0.1in;
 }
 
 .details div{
@@ -356,23 +350,6 @@ li{
   margin-left: -4.25pt;
   content: '• ';
 }
-
-.details .concise ul{
-  margin: 0 !important;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  columns: 2;
-}
-
-.details .concise li{
-  margin: 0 !important;
-}
-
-.details .concise li{
-  margin-left: 0 !important;
-}
-
-
 
 /* sidebar */
 

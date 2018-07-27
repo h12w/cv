@@ -18,7 +18,7 @@
       <section id="main">
         <section class="main-block">
           <h2>
-            <i class="fa fa-briefcase"></i> {{.Headings.Work}}
+            <i class="fa fa-briefcase"></i>{{.Headings.Work}}
           </h2>
           {{- range .Work}}
           {{- if not .Hidden}}
@@ -26,8 +26,7 @@
             <div class="date">
               <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
             </div>
-            <div class="decorator">
-            </div>
+            <div class="decorator"></div>
             <div class="details">
               <header>
                 <h3>{{.Position}}</h3>
@@ -40,7 +39,7 @@
                   <li>{{. | markdown}}</li>
                   {{- end -}}
                 </ul>
-                </div>
+              </div>
             </div>
           </section>
           {{- end -}}
@@ -58,29 +57,29 @@
               <span>{{.StartDate}}</span>
             {{- else -}}
               <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
-            </div>
             {{- end -}}
             </div>
-            <div class="decorator">
-            </div>
+            <div class="decorator"></div>
             <div class="details">
               <header>
                 <h3>{{.Name}}</h3>
-                <span class="project-url"><a href="https://{{.URL}}">{{.URL}}</a></span>
+                <span class="project-url">{{.URL | markdown}}</span>
               </header>
-              <ul>
-                {{- range .Highlights}}
-                <li>{{.}}</li>
-                {{- end -}}
-              </ul>
+              <div>
+                <ul>
+                  {{- range .Highlights}}
+                  <li>{{. | markdown}}</li>
+                  {{- end -}}
+                </ul>
+              </div>
             </div>
           </section>
           {{- end -}}
           {{- end -}}
         </section>
-        <section class="main-block concise">
+        <section class="main-block">
           <h2>
-            <i class="fa fa-graduation-cap"></i> {{.Headings.Education}}
+            <i class="fa fa-graduation-cap"></i>{{.Headings.Education}}
           </h2>
           {{- range .Education}}
           {{- if not .Hidden}}
@@ -88,8 +87,7 @@
             <div class="date">
               <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
             </div>
-            <div class="decorator">
-            </div>
+            <div class="decorator"></div>
             <div class="details">
               <header>
                 <h3>{{.StudyType}}</h3>
@@ -98,7 +96,13 @@
                 <span class="location">{{.Location}}</span>
                 {{- end -}}
               </header>
-              <div>{{.Area}}</div>
+              <div>
+                <ul>
+                  {{- range .Highlights}}
+                  <li>{{. | markdown}}</li>
+                  {{- end -}}
+                </ul>
+              </div>
             </div>
           </section>
           {{- end -}}

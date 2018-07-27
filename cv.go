@@ -103,6 +103,7 @@ type (
 		EndDate     string   `json:"endDate"`
 		GPA         string   `json:"gpa"`
 		Courses     []string `json:"courses"`
+		Highlights  []string `json:"highlights"`
 		Hidden      bool     `json:"hidden"`
 	}
 	Work struct {
