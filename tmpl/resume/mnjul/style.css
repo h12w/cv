@@ -21,7 +21,7 @@
 
   /* XXX: using px for very good precision control */
   --decorator-outer-offset-top: 12px;
-  --decorator-outer-offset-left: -5.5px;
+  --decorator-outer-offset-left: -5px;
   --decorator-border-width: 1px;
   --decorator-outer-dim: 9px;
   --decorator-border: 1px solid #ccc;
@@ -66,7 +66,7 @@ li{
 #title{
   grid-column: 1/span 1;
   grid-row: 1/span 1;
-  margin-top: 0.47in;
+  margin-top: 0.40in;
   margin-left: 0.75in;
   margin-bottom: 18pt;
   height: 0.4in;
@@ -79,7 +79,7 @@ li{
 #main{
   grid-column: 1/span 1;
   grid-row: 2/span 1;
-  padding: 0 0.25in 0 0.45in;
+  padding: 0 0.25in 0 0.15in;
 }
 #sidebar{
   grid-column: 2/span 1;
@@ -111,7 +111,7 @@ li{
 
 #title{
   line-height: 1.2;
-  margin-bottom: 0.75in;
+  margin-bottom: 0.84in;
 }
 
 #title h1{

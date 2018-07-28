@@ -5,6 +5,7 @@ import "fmt"
 // https://jsonresume.org/schema/
 type (
 	CV struct {
+		Title        string        `json:"title"`
 		Headings     Headings      `json:"headings"`
 		Basics       Basics        `json:"basics"`
 		Education    []Education   `json:"education"`
