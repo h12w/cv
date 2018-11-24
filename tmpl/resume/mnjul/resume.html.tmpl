@@ -39,7 +39,9 @@
               <div>
                 <ul>
                   {{- range .Highlights}}
+                  {{- if not .Hidden}}
                   <li>{{. | markdown}}</li>
+                  {{- end -}}
                   {{- end -}}
                 </ul>
               </div>
@@ -71,7 +73,9 @@
               <div>
                 <ul>
                   {{- range .Highlights}}
+                  {{- if not .Hidden}}
                   <li>{{. | markdown}}</li>
+                  {{- end -}}
                   {{- end -}}
                 </ul>
               </div>
@@ -102,7 +106,9 @@
               <div>
                 <ul>
                   {{- range .Highlights}}
+                  {{- if not .Hidden}}
                   <li>{{. | markdown}}</li>
+                  {{- end -}}
                   {{- end -}}
                 </ul>
               </div>
@@ -119,7 +125,10 @@
           </h1>
           <ul>
             <li><i class="contact fa fa-envelope"></i><a href="mailto:{{.Basics.Email}}">{{.Basics.Email}}</a></li>
+            <li><i class="contact fa fa-phone"></i>{{.Basics.Phone}}</li>
+            {{- if not .Basics.Skype.Hidden}}
             <li><i class="contact fa fa-skype"></i><a href="skype:{{.Basics.Skype.ID}}?chat">{{.Basics.Skype.Email}}</a></li>
+            {{- end -}}
             <li><i class="contact fa fa-globe"></i><a href="https://{{.Basics.Website}}">{{.Basics.Website}}</a></li>
             <li><i class="contact fa fa-github"></i><a href="https://{{.Basics.Github}}">{{.Basics.Github}}</a></li>
             <li><i class="contact fa fa-linkedin"></i><a href="https://www.linkedin.com/in/{{.Basics.Linkedin}}">{{.Basics.Linkedin}}</a></li>
