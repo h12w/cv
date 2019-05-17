@@ -6,7 +6,7 @@ import (
 	"path"
 )
 
-var DefaultDataPath = path.Join(os.Getenv("GOPATH"), "src/h12.io/cv-data")
+var DefaultDataPath = path.Join(os.Getenv("HOME"), "h12.io/cv-data")
 
 func JSON(filename string, data interface{}) error {
 	cvFile, err := os.Open(filename)
