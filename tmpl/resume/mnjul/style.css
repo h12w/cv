@@ -69,7 +69,7 @@ li{
   margin-top: 0.40in;
   margin-left: 0.75in;
   margin-bottom: 18pt;
-  height: 0.4in;
+  height: 0.30in;
 }
 #limbo{
   grid-column: 2/span 1;
@@ -86,6 +86,10 @@ li{
   grid-row: 2/span 1;
   padding: var(--row-blocks-padding-top) var(--sidebar-horizontal-padding);
   height: 100%;
+}
+
+#sidebar-adjust{
+  padding-top: 0.03pt;
 }
 
 #main{
