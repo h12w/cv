@@ -52,14 +52,14 @@ type (
 		Hidden      bool   `json:"hidden"`
 	}
 	Volunteer struct {
-		Organization string  `json:"organization"`
-		Position     string  `json:"position"`
-		Website      string  `json:"website"`
-		StartDate    string  `json:"startDate"`
-		EndDate      string  `json:"endDate"`
-		Summary      string  `json:"summary"`
-		Highlights   []Point `json:"highlights"`
-		Hidden       bool    `json:"hidden"`
+		Organization string `json:"organization"`
+		Position     string `json:"position"`
+		Website      string `json:"website"`
+		StartDate    string `json:"startDate"`
+		EndDate      string `json:"endDate"`
+		Summary      string `json:"summary"`
+		Highlights   []Text `json:"highlights"`
+		Hidden       bool   `json:"hidden"`
 	}
 	Headings struct {
 		Projects  string `json:"projects"`
@@ -72,8 +72,8 @@ type (
 		Name     Name      `json:"name"`
 		Label    string    `json:"label"`
 		Picture  string    `json:"picture"`
-		Email    string    `json:"email"`
-		Phone    string    `json:"phone"`
+		Email    Text      `json:"email"`
+		Phone    Text      `json:"phone"`
 		Website  string    `json:"website"`
 		Linkedin string    `json:"linkedin"`
 		Summary  string    `json:"summary"`
@@ -108,18 +108,18 @@ type (
 		EndDate     string   `json:"endDate"`
 		GPA         string   `json:"gpa"`
 		Courses     []string `json:"courses"`
-		Highlights  []Point  `json:"highlights"`
+		Highlights  []Text   `json:"highlights"`
 		Hidden      bool     `json:"hidden"`
 	}
 	Work struct {
-		Position   string  `json:"position"`
-		Company    string  `json:"company"`
-		Location   string  `json:"location"`
-		Website    string  `json:"website,omitempty"`
-		StartDate  string  `json:"startDate"`
-		EndDate    string  `json:"endDate"`
-		Highlights []Point `json:"highlights"`
-		Hidden     bool    `json:"hidden"`
+		Position   string `json:"position"`
+		Company    string `json:"company"`
+		Location   string `json:"location"`
+		Website    string `json:"website,omitempty"`
+		StartDate  string `json:"startDate"`
+		EndDate    string `json:"endDate"`
+		Highlights []Text `json:"highlights"`
+		Hidden     bool   `json:"hidden"`
 	}
 	Skill struct {
 		Name     string   `json:"name"`
@@ -134,7 +134,7 @@ type (
 		EndDate    string   `json:"endDate"`
 		URL        string   `json:"url"`
 		Keywords   []string `json:"keywords"`
-		Highlights []Point  `json:"highlights"`
+		Highlights []Text   `json:"highlights"`
 		Hidden     bool     `json:"hidden"`
 	}
 	Award struct {
@@ -144,10 +144,10 @@ type (
 		Summary string `json:"summary"`
 		Hidden  bool   `json:"hidden"`
 	}
-	Point string
+	Text string
 )
 
-func (p Point) Hidden() bool {
+func (p Text) Hidden() bool {
 	return strings.HasPrefix(string(p), "//")
 }
 

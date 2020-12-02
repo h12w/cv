@@ -68,8 +68,7 @@ li{
   grid-row: 1/span 1;
   margin-top: 0.40in;
   margin-left: 0.75in;
-  margin-bottom: 18pt;
-  height: 0.30in;
+  height: 0.25in;
 }
 #limbo{
   grid-column: 2/span 1;
@@ -114,8 +113,7 @@ li{
 }
 
 #title{
-  line-height: 1.2;
-  margin-bottom: 0.84in;
+  line-height: 1.5;
 }
 
 #title h1{

@@ -125,7 +125,9 @@
           </h1>
           <ul>
             <li><i class="contact fa fa-envelope"></i><a href="mailto:{{.Basics.Email}}">{{.Basics.Email}}</a></li>
+            {{- if not .Basics.Phone.Hidden}}
             <li><i class="contact fa fa-phone"></i>{{.Basics.Phone}}</li>
+            {{- end -}}
             {{- if not .Basics.Skype.Hidden}}
             <li><i class="contact fa fa-skype"></i><a href="skype:{{.Basics.Skype.ID}}?chat">{{.Basics.Skype.Email}}</a></li>
             {{- end -}}
