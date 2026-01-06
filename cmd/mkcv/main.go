@@ -31,7 +31,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	tmpl, err := template.New(opt.Template).Funcs(template.FuncMap{"markdown": markdown}).ParseFiles(opt.Template)
+	tmpl, err := template.New(path.Base(opt.Template)).Funcs(template.FuncMap{"markdown": markdown}).ParseFiles(opt.Template)
 	if err != nil {
 		log.Fatal(err)
 	}
