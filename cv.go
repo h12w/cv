@@ -8,20 +8,21 @@ import (
 // https://jsonresume.org/schema/
 type (
 	CV struct {
-		Title        string        `json:"title"`
-		Headings     Headings      `json:"headings"`
-		Basics       Basics        `json:"basics"`
-		Education    []Education   `json:"education"`
-		Work         []Work        `json:"work"`
-		Skills       []Skill       `json:"skills"`
-		Projects     []Project     `json:"projects"`
-		Awards       []Award       `json:"awards"`
-		Sections     []string      `json:"sections"`
-		Volunteer    []Volunteer   `json:"volunteer"`
-		Publications []Publication `json:"publications"`
-		Languages    []Language    `json:"languages"`
-		Interests    []Interest    `json:"interests"`
-		References   []Reference   `json:"references"`
+		Title        string          `json:"title"`
+		Headings     Headings        `json:"headings"`
+		Basics       Basics          `json:"basics"`
+		Portfolio    []PortfolioItem `json:"portfolio"`
+		Education    []Education     `json:"education"`
+		Work         []Work          `json:"work"`
+		Skills       []Skill         `json:"skills"`
+		Projects     []Project       `json:"projects"`
+		Awards       []Award         `json:"awards"`
+		Sections     []string        `json:"sections"`
+		Volunteer    []Volunteer     `json:"volunteer"`
+		Publications []Publication   `json:"publications"`
+		Languages    []Language      `json:"languages"`
+		Interests    []Interest      `json:"interests"`
+		References   []Reference     `json:"references"`
 	}
 	Reference struct {
 		Name      string `json:"name"`
@@ -63,6 +64,7 @@ type (
 	}
 	Headings struct {
 		Projects  string `json:"projects"`
+		Portfolio string `json:"portfolio"`
 		Awards    string `json:"awards"`
 		Education string `json:"education"`
 		Work      string `json:"work"`
@@ -143,6 +145,21 @@ type (
 		Awarder string `json:"awarder"`
 		Summary string `json:"summary"`
 		Hidden  bool   `json:"hidden"`
+	}
+	PortfolioItem struct {
+		Name       string   `json:"name"`
+		Summary    string   `json:"summary"`
+		URL        string   `json:"url"`
+		Render     bool     `json:"render"` // For forcing render if needed
+		Keywords   []string `json:"keywords"`
+		Metrics    []Metric `json:"metrics"`
+		Highlights []Text   `json:"highlights"`
+		Hidden     bool     `json:"hidden"`
+	}
+	Metric struct {
+		Label  string `json:"label"`
+		Value  string `json:"value"`
+		Change string `json:"change"`
 	}
 	Text string
 )

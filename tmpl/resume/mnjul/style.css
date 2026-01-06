@@ -11,11 +11,15 @@
   --page-count: 2;
   --page-width: 8.27in;
   --page-height: 11.69in;
-  --main-width: 6.1in;
-  --sidebar-width: calc(var(--page-width) - var(--main-width));
+  --horizontal-margin: 0.55in;
+  --right-margin: var(--horizontal-margin);
+  --main-width: 5.35in;
+  --sidebar-width: calc(var(--page-width) - var(--main-width) - var(--right-margin));
   --decorator-horizontal-margin: 0.185in;
 
   --sidebar-horizontal-padding: 0.3in;
+  --sidebar-padding-right: 0.3in;
+  --sidebar-padding-left: 0.3in;
 
   --body-font-size: 10pt;
 
@@ -59,57 +63,157 @@ li {
 }
 
 #grid-container {
-  display: grid;
-  grid-template-columns: var(--main-width), var(--sidebar-width);
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  /* Changed from height: 100% to allow flow */
 }
 
+/* Header Section */
 #title {
-  grid-column: 1/span 1;
-  grid-row: 1/span 1;
+  /* Removed grid-column/row properties */
   margin-top: 0.50in;
-  margin-bottom: 0.10in;
-  margin-left: 0.75in;
+  margin-bottom: 0.20in;
+  margin-left: var(--horizontal-margin);
+  margin-right: var(--horizontal-margin);
+  /* Reduced right margin to match sidebar alignment */
 }
 
-#limbo {
-  grid-column: 2/span 1;
-  grid-row: 1/span 1;
-  padding-bottom: 0.15in;
+/* New Contact Header Styles */
+#contact-header {
+  margin-top: 10pt;
+  padding-top: 10pt;
+  border-top: 1px solid #eee;
 }
 
-#main {
-  grid-column: 1/span 1;
-  grid-row: 2/span 1;
-  padding: 0 0.25in 0 0.15in;
+#contact-header ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15pt;
+  /* Space between contact items */
+  list-style: none;
 }
 
-#sidebar {
-  grid-column: 2/span 1;
-  grid-row: 2/span 1;
-  padding: var(--row-blocks-padding-top) var(--sidebar-horizontal-padding);
+#contact-header li {
+  font-family: "Source Code Pro";
+  font-size: 9pt;
+  color: #555;
+  display: flex;
+  /* align icon and text */
+  align-items: center;
+}
+
+#contact-header li>i.contact {
+  margin-right: 6px;
+  color: var(--section-color);
+  width: auto;
+  /* reset fixed width from sidebar */
+  text-align: center;
+}
+
+/* Portfolio Section */
+#portfolio-section {
+  /* Aligned with #title margins (0.75in) or slightly tighter to match content width */
+  padding: 0 var(--horizontal-margin) 0.25in var(--horizontal-margin);
+  /* Reduced right padding to 0.1in */
+  width: 100%;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20pt;
+  /* Increased gap for cleaner look */
+  margin-top: 0;
+}
+
+.portfolio-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
 }
 
-#sidebar-adjust {
-  padding-top: 0.03pt;
+.portfolio-item header {
+  margin-bottom: 8pt;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6pt;
+}
+
+.portfolio-item .details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.portfolio-item h3 {
+  font-size: 11pt;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.portfolio-item .project-url {
+  font-size: 8pt;
+  color: #888;
+  display: block;
+  margin-top: 2pt;
+}
+
+.portfolio-item .details .summary {
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: 10pt;
+  flex-grow: 1;
+  /* Push metrics/highlights down */
+}
+
+/* Main Content Row (The 2-column part) */
+#main-content-row {
+  display: grid;
+  grid-template-columns: var(--main-width) var(--sidebar-width);
+  width: 100%;
+  padding-right: 0;
+  /* ensure it fits */
+}
+
+#limbo {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  /* Reset row */
+  padding-bottom: 0.15in;
+  background-color: var(--sidebar-color);
 }
 
 #main {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  /* Reset row */
+  padding: 0 0.25in 0 var(--horizontal-margin);
+  /* Aligned left padding with Header/Portfolio (0.75in) */
   width: 100%;
   font-size: var(--body-font-size);
 }
 
 #sidebar {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  /* Reset row */
+  padding: var(--row-blocks-padding-top) var(--sidebar-padding-right) var(--row-blocks-padding-top) var(--sidebar-padding-left);
+  height: 100%;
+  /* Extend to bottom */
   width: 100%;
   background-color: var(--sidebar-color);
   font-size: var(--body-font-size);
-}
-
-#limbo {
-  background-color: var(--sidebar-color);
 }
 
 /* main */
@@ -456,6 +560,76 @@ a {
   color: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
+
+/* Portfolio specific styles */
+.portfolio-item .details .summary {
+  margin-bottom: 6pt;
+  font-style: italic;
+  color: #555;
+}
+
+.metric {
+  font-family: "Source Code Pro", monospace;
+  font-size: 8pt;
+  background: #f0f4f8;
+  color: #333;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid #d1d9e6;
+  display: inline-flex;
+  align-items: center;
+}
+
+.metrics {
+  margin-top: auto;
+  order: 100;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8pt;
+  padding-top: 10pt;
+  border-top: 1px dashed #eee;
+}
+
+.portfolio-item ul {
+  margin: 8pt 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4pt;
+}
+
+.portfolio-item li {
+  position: relative;
+  padding-left: 11pt;
+  margin: 0;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.portfolio-item li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--section-color);
+  font-weight: 700;
+}
+
+.metric-label {
+  color: #555;
+  margin-right: 4px;
+  font-weight: 600;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  color: #000;
+  font-weight: bold;
+}
+
+.metric-change {
+  color: #2e7d32;
+  /* Green for positive change/improvements */
+  margin-left: 4px;
+  font-size: 80%;
 }

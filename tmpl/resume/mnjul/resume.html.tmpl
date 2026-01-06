@@ -11,119 +11,15 @@
   </head>
   <body lang="en">
     <div id="grid-container">
+      <!-- HEADER ROW -->
       <header id="title">
         <h1>{{.Basics.Name.First}} <strong>{{.Basics.Name.Nick}}</strong> {{.Basics.Name.Second}}</h1>
         <span class="subtitle"></span>
         <p class="summary">{{.Basics.Summary}}</p>
-      </header>
-      <div id="limbo">
-      </div>
-      <section id="main">
-        <section class="main-block">
-          <h2>
-            <i class="fa fa-briefcase"></i>{{.Headings.Work}}
-          </h2>
-          {{- range .Work}}
-          {{- if not .Hidden}}
-          <section class="blocks">
-            <div class="date">
-              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
-            </div>
-            <div class="decorator"></div>
-            <div class="details">
-              <header>
-                <h3>{{.Position}}</h3>
-                <span class="place">{{.Company}}</span>
-                <span class="location">{{.Location}}</span>
-              </header>
-              <div>
-                <ul>
-                  {{- range .Highlights}}
-                  {{- if not .Hidden}}
-                  <li>{{. | markdown}}</li>
-                  {{- end -}}
-                  {{- end -}}
-                </ul>
-              </div>
-            </div>
-          </section>
-          {{- end -}}
-          {{- end -}}
-        </section>
-        <section class="main-block">
-          <h2>
-            <i class="fa fa-github"></i>{{.Headings.Projects}}
-          </h2>
-          {{- range .Projects}}
-          {{- if not .Hidden}}
-          <section class="blocks">
-            <div class="date">
-            {{- if eq .StartDate .EndDate}}
-              <span>{{.StartDate}}</span>
-            {{- else -}}
-              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
-            {{- end -}}
-            </div>
-            <div class="decorator"></div>
-            <div class="details">
-              <header>
-                <h3>{{.Name}}</h3>
-                <span class="project-url">{{.URL | markdown}}</span>
-              </header>
-              <div>
-                <ul>
-                  {{- range .Highlights}}
-                  {{- if not .Hidden}}
-                  <li>{{. | markdown}}</li>
-                  {{- end -}}
-                  {{- end -}}
-                </ul>
-              </div>
-            </div>
-          </section>
-          {{- end -}}
-          {{- end -}}
-        </section>
-        <section class="main-block">
-          <h2>
-            <i class="fa fa-graduation-cap"></i>{{.Headings.Education}}
-          </h2>
-          {{- range .Education}}
-          {{- if not .Hidden}}
-          <section class="blocks">
-            <div class="date">
-              <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
-            </div>
-            <div class="decorator"></div>
-            <div class="details">
-              <header>
-                <h3>{{.StudyType}}</h3>
-                <span class="place">{{.Institution}}</span>
-                {{- if ne .Location ""}}
-                <span class="location">{{.Location}}</span>
-                {{- end -}}
-              </header>
-              <div>
-                <ul>
-                  {{- range .Highlights}}
-                  {{- if not .Hidden}}
-                  <li>{{. | markdown}}</li>
-                  {{- end -}}
-                  {{- end -}}
-                </ul>
-              </div>
-            </div>
-          </section>
-          {{- end -}}
-          {{- end -}}
-        </section>
-      </section>
-      <aside id="sidebar">
-        <div class="side-block" id="contact">
-          <h1>
-            Contact Info
-          </h1>
-          <ul>
+        
+        <!-- Contact Info Moved Here -->
+        <div id="contact-header">
+           <ul>
             <li><i class="contact fa fa-envelope"></i><a href="mailto:{{.Basics.Email}}">{{.Basics.Email}}</a></li>
             {{- if not .Basics.Phone.Hidden}}
             <li><i class="contact fa fa-phone"></i>{{.Basics.Phone}}</li>
@@ -134,28 +30,182 @@
             <li><i class="contact fa fa-globe"></i><a href="https://{{.Basics.Website}}">{{.Basics.Website}}</a></li>
             <li><i class="contact fa fa-github"></i><a href="https://{{.Basics.Github}}">{{.Basics.Github}}</a></li>
             <li><i class="contact fa fa-linkedin"></i><a href="https://www.linkedin.com/in/{{.Basics.Linkedin}}">{{.Basics.Linkedin}}</a></li>
-          </ul>
+           </ul>
         </div>
-        <div id="sidebar-adjust">
-        <div class="side-block" id="skills">
-          <h1>
-            {{.Headings.Skills}}
-          </h1>
-          {{- range .Skills}}
-          {{- if not .Hidden}}
-          <ul>
-            <li class="skill-name">{{.Name}}</li>
-            {{- range .Keywords}}
-            <li>{{.}}</li>
-            {{- end -}}
-          </ul>
-          {{- end -}}
-          {{- end -}}
+      </header>
+      
+      <!-- PORTFOLIO ROW -->
+      {{- if .Portfolio}}
+      <section id="portfolio-section" class="main-block">
+        <div class="portfolio-grid">
+        {{- range .Portfolio}}
+        {{- if not .Hidden}}
+        <section class="blocks portfolio-item">
+          <div class="details">
+            <header>
+              <h3>{{.Name}}</h3>
+              {{- if .URL}}
+              <span class="project-url"><a href="https://{{.URL}}">{{.URL}}</a></span>
+              {{- end}}
+            </header>
+            <div class="summary">
+              {{.Summary}}
+            </div>
+            {{- if .Metrics}}
+            <div class="metrics">
+              {{- range .Metrics}}
+              <span class="metric">
+                <span class="metric-label">{{.Label}}</span>
+                <span class="metric-value">{{.Value}}</span>
+                {{- if .Change}}
+                <span class="metric-change">{{.Change}}</span>
+                {{- end}}
+              </span>
+              {{- end}}
+            </div>
+            {{- end}}
+            {{- if .Highlights}}
+            <ul>
+              {{- range .Highlights}}
+              <li>{{. | markdown}}</li>
+              {{- end}}
+            </ul>
+            {{- end}}
+          </div>
+        </section>
+        {{- end}}
+        {{- end}}
         </div>
-        <div class="side-block" id="disclaimer">
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by <code><a href="https://h12.io/cv">h12.io/cv</a></code></p>
-        </div>
-      </aside>
-    </div>
+      </section>
+      {{- end}}
+
+      <!-- MAIN CONTENT ROW (Split) -->
+      <div id="main-content-row">
+          <div id="limbo">
+          </div>
+           <section id="main">
+            <section class="main-block">
+              <h2>
+                <i class="fa fa-briefcase"></i>{{.Headings.Work}}
+              </h2>
+              {{- range .Work}}
+              {{- if not .Hidden}}
+              <section class="blocks">
+                <div class="date">
+                  <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+                </div>
+                <div class="decorator"></div>
+                <div class="details">
+                  <header>
+                    <h3>{{.Position}}</h3>
+                    <span class="place">{{.Company}}</span>
+                    <span class="location">{{.Location}}</span>
+                  </header>
+                  <div>
+                    <ul>
+                      {{- range .Highlights}}
+                      {{- if not .Hidden}}
+                      <li>{{. | markdown}}</li>
+                      {{- end -}}
+                      {{- end -}}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              {{- end -}}
+              {{- end -}}
+            </section>
+            <section class="main-block">
+              <h2>
+                <i class="fa fa-github"></i>{{.Headings.Projects}}
+              </h2>
+              {{- range .Projects}}
+              {{- if not .Hidden}}
+              <section class="blocks">
+                <div class="date">
+                {{- if eq .StartDate .EndDate}}
+                  <span>{{.StartDate}}</span>
+                {{- else -}}
+                  <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+                {{- end -}}
+                </div>
+                <div class="decorator"></div>
+                <div class="details">
+                  <header>
+                    <h3>{{.Name}}</h3>
+                    <span class="project-url">{{.URL | markdown}}</span>
+                  </header>
+                  <div>
+                    <ul>
+                      {{- range .Highlights}}
+                      {{- if not .Hidden}}
+                      <li>{{. | markdown}}</li>
+                      {{- end -}}
+                      {{- end -}}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              {{- end -}}
+              {{- end -}}
+            </section>
+            <section class="main-block">
+              <h2>
+                <i class="fa fa-graduation-cap"></i>{{.Headings.Education}}
+              </h2>
+              {{- range .Education}}
+              {{- if not .Hidden}}
+              <section class="blocks">
+                <div class="date">
+                  <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
+                </div>
+                <div class="decorator"></div>
+                <div class="details">
+                  <header>
+                    <h3>{{.StudyType}}</h3>
+                    <span class="place">{{.Institution}}</span>
+                    {{- if ne .Location ""}}
+                    <span class="location">{{.Location}}</span>
+                    {{- end -}}
+                  </header>
+                  <div>
+                    <ul>
+                      {{- range .Highlights}}
+                      {{- if not .Hidden}}
+                      <li>{{. | markdown}}</li>
+                      {{- end -}}
+                      {{- end -}}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              {{- end -}}
+              {{- end -}}
+            </section>
+          </section>
+          
+          <aside id="sidebar">
+            <div id="sidebar-adjust">
+            <div class="side-block" id="skills">
+              <h1>
+                {{.Headings.Skills}}
+              </h1>
+              {{- range .Skills}}
+              {{- if not .Hidden}}
+              <ul>
+                <li class="skill-name">{{.Name}}</li>
+                {{- range .Keywords}}
+                <li>{{.}}</li>
+                {{- end -}}
+              </ul>
+              {{- end -}}
+              {{- end -}}
+            </div>
+            <div class="side-block" id="disclaimer">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by <code><a href="https://h12.io/cv">h12.io/cv</a></code></p>
+            </div>
+            </div>
+          </aside>
+      </div>
   </body>
 </html>
