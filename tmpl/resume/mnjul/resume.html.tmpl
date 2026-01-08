@@ -55,8 +55,12 @@
             <div class="metrics">
               {{- range .Metrics}}
               <span class="metric">
+                {{- if .Label}}
                 <span class="metric-label">{{.Label}}</span>
+                {{- end}}
+                {{- if .Value}}
                 <span class="metric-value">{{.Value}}</span>
+                {{- end}}
                 {{- if .Change}}
                 <span class="metric-change">{{.Change}}</span>
                 {{- end}}
@@ -67,7 +71,7 @@
             {{- if .Items}}
             <div class="portfolio-items">
               {{- range .Items}}
-              <div class="portfolio-subitem">
+              <div class="portfolio-subitem" id="portfolio-item-{{.Title | slugify}}">
                  <div class="subitem-header">
                     <span class="subitem-title">{{.Title}}</span>
                     <span class="subitem-tag">{{.Tag}}</span>
@@ -77,8 +81,12 @@
                  <div class="subitem-metrics">
                    {{- range .Metrics}}
                    <span class="metric">
+                     {{- if .Label}}
                      <span class="metric-label">{{.Label}}</span>
+                     {{- end}}
+                     {{- if .Value}}
                      <span class="metric-value">{{.Value}}</span>
+                     {{- end}}
                      {{- if .Change}}
                      <span class="metric-change">{{.Change}}</span>
                      {{- end}}
@@ -133,6 +141,12 @@
                       <li>{{. | markdown}}</li>
                       {{- end -}}
                       {{- end -}}
+                      
+                      {{- if .RefItems}}
+                      {{- range .RefItems}}
+                      <li class="portfolio-ref">See project <a href="#portfolio-item-{{. | slugify}}">{{.}}</a></li>
+                      {{- end}}
+                      {{- end}}
                     </ul>
                   </div>
                 </div>

@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"strings"
 
 	"gopkg.in/russross/blackfriday.v2"
 	"h12.io/cv"
@@ -31,7 +32,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	tmpl, err := template.New(path.Base(opt.Template)).Funcs(template.FuncMap{"markdown": markdown}).ParseFiles(opt.Template)
+	tmpl, err := template.New(path.Base(opt.Template)).Funcs(template.FuncMap{
+		"markdown": markdown,
+		"slugify":  slugify,
+	}).ParseFiles(opt.Template)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -51,4 +55,12 @@ func markdown(args ...interface{}) template.HTML {
 	s = bytes.TrimPrefix(s, []byte("<p>"))
 	s = bytes.TrimSuffix(s, []byte("</p>"))
 	return template.HTML(s)
+}
+
+func slugify(s string) string {
+	s = strings.ToLower(s)
+	s = strings.ReplaceAll(s, " ", "-")
+	s = strings.ReplaceAll(s, "&", "and")
+	s = strings.ReplaceAll(s, "/", "-or-")
+	return s
 }

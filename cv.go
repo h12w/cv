@@ -114,14 +114,15 @@ type (
 		Hidden      bool     `json:"hidden"`
 	}
 	Work struct {
-		Position   string `json:"position"`
-		Company    string `json:"company"`
-		Location   string `json:"location"`
-		Website    string `json:"website,omitempty"`
-		StartDate  string `json:"startDate"`
-		EndDate    string `json:"endDate"`
-		Highlights []Text `json:"highlights"`
-		Hidden     bool   `json:"hidden"`
+		Position   string   `json:"position"`
+		Company    string   `json:"company"`
+		Location   string   `json:"location"`
+		Website    string   `json:"website,omitempty"`
+		StartDate  string   `json:"startDate"`
+		EndDate    string   `json:"endDate"`
+		Highlights []Text   `json:"highlights"`
+		RefItems   []string `json:"references"`
+		Hidden     bool     `json:"hidden"`
 	}
 	Skill struct {
 		Name     string   `json:"name"`
