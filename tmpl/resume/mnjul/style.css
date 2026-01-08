@@ -82,8 +82,8 @@ li {
 
 /* New Contact Header Styles */
 #contact-header {
-  margin-top: 10pt;
-  padding-top: 10pt;
+  margin-top: 12pt;
+  padding-top: 12pt;
   border-top: 1px solid #eee;
 }
 
@@ -128,7 +128,7 @@ li {
   grid-template-columns: 1fr 1fr;
   gap: 20pt;
   /* Increased gap for cleaner look */
-  margin-top: 0;
+  margin-top: 10pt;
 }
 
 .portfolio-item {
@@ -140,6 +140,22 @@ li {
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+}
+
+/* ... */
+
+.subitem-text {
+  font-size: 9pt;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 6pt;
+}
+
+.subitem-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6pt;
+  margin-top: 8pt;
 }
 
 .portfolio-item header {
@@ -232,7 +248,7 @@ h2 {
   font-weight: normal;
   font-size: 18pt;
   line-height: 1.5;
-  margin-bottom: 1pt;
+  margin-bottom: 12pt;
 }
 
 #title h1 strong {
@@ -245,14 +261,15 @@ h2 {
 }
 
 #title .summary {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 4pt;
+  margin-bottom: 12pt;
   margin-right: 0.25in;
   font-size: var(--body-font-size);
   font-weight: normal;
   letter-spacing: 1px;
   text-align: justify;
 }
+
 
 /*** categorial blocks ***/
 
@@ -592,7 +609,7 @@ a {
 
 /* Portfolio specific styles */
 .portfolio-item .details .summary {
-  margin-bottom: 6pt;
+  margin-bottom: 12pt;
   font-style: italic;
   color: #555;
 }
@@ -689,7 +706,9 @@ a {
 .subitem-text {
   font-size: 9pt;
   color: #444;
-  line-height: 1.35;
+  line-height: 1.5;
+  margin-bottom: 0;
+  padding-bottom: 12pt;
 }
 
 .subitem-text p {
@@ -720,7 +739,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 6pt;
-  margin-top: 4pt;
+  margin-top: 0;
 }
 
 .subitem-metrics .metric {
