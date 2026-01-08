@@ -231,7 +231,32 @@
               </div>
               {{- end}}
               {{- end}}
+
             </div>
+            {{- if .Awards}}
+            <div class="side-block" id="awards">
+              <h1>
+                {{.Headings.Awards}}
+              </h1>
+              {{- range .Awards}}
+              {{- if not .Hidden}}
+              <div class="sidebar-project">
+                <div class="project-title">
+                  {{.Title}}
+                </div>
+                {{- if .Date}}
+                <div class="project-url">{{.Date}}</div>
+                {{- end}}
+                {{- if .Summary}}
+                <ul class="project-highlights">
+                  <li>{{.Summary | markdown}}</li>
+                </ul>
+                {{- end}}
+              </div>
+              {{- end}}
+              {{- end}}
+            </div>
+            {{- end}}
             <div class="side-block" id="disclaimer">
               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by <code><a href="https://h12.io/cv">h12.io/cv</a></code></p>
             </div>
