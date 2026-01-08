@@ -64,7 +64,32 @@
               {{- end}}
             </div>
             {{- end}}
-            {{- if .Highlights}}
+            {{- if .Items}}
+            <div class="portfolio-items">
+              {{- range .Items}}
+              <div class="portfolio-subitem">
+                 <div class="subitem-header">
+                    <span class="subitem-title">{{.Title}}</span>
+                    <span class="subitem-tag">{{.Tag}}</span>
+                 </div>
+                 <div class="subitem-text">{{.Text | markdown}}</div>
+                 {{- if .Metrics}}
+                 <div class="subitem-metrics">
+                   {{- range .Metrics}}
+                   <span class="metric">
+                     <span class="metric-label">{{.Label}}</span>
+                     <span class="metric-value">{{.Value}}</span>
+                     {{- if .Change}}
+                     <span class="metric-change">{{.Change}}</span>
+                     {{- end}}
+                   </span>
+                   {{- end}}
+                 </div>
+                 {{- end}}
+              </div>
+              {{- end}}
+            </div>
+            {{- else if .Highlights}}
             <ul>
               {{- range .Highlights}}
               <li>{{. | markdown}}</li>

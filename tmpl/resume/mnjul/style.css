@@ -643,6 +643,59 @@ a {
   font-weight: 700;
 }
 
+/* Structured Portfolio Items */
+.portfolio-items {
+  margin-top: 10pt;
+  display: flex;
+  flex-direction: column;
+  gap: 8pt;
+}
+
+.portfolio-subitem {
+  /* optional separator */
+  /* border-bottom: 1px dashed #eee; */
+  padding-bottom: 2pt;
+}
+
+.portfolio-subitem:last-child {
+  border-bottom: none;
+}
+
+.subitem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2pt;
+}
+
+.subitem-title {
+  font-weight: 700;
+  font-size: 9.5pt;
+  color: #333;
+}
+
+.subitem-tag {
+  font-family: "Source Code Pro", monospace;
+  font-size: 7.5pt;
+  color: #888;
+  background-color: #f7f7f7;
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  white-space: nowrap;
+  margin-left: 8pt;
+}
+
+.subitem-text {
+  font-size: 9pt;
+  color: #444;
+  line-height: 1.35;
+}
+
+.subitem-text p {
+  margin: 0;
+}
+
 .metric-label {
   color: #555;
   margin-right: 4px;
@@ -661,4 +714,18 @@ a {
   /* Green for positive change/improvements */
   margin-left: 4px;
   font-size: 80%;
+}
+
+.subitem-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6pt;
+  margin-top: 4pt;
+}
+
+.subitem-metrics .metric {
+  font-size: 7.5pt;
+  padding: 1px 6px;
+  background: #f7f9fc;
+  border-color: #e1e8f0;
 }

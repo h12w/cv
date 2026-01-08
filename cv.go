@@ -147,14 +147,21 @@ type (
 		Hidden  bool   `json:"hidden"`
 	}
 	PortfolioItem struct {
-		Name       string   `json:"name"`
-		Summary    string   `json:"summary"`
-		URL        string   `json:"url"`
-		Render     bool     `json:"render"` // For forcing render if needed
-		Keywords   []string `json:"keywords"`
-		Metrics    []Metric `json:"metrics"`
-		Highlights []Text   `json:"highlights"`
-		Hidden     bool     `json:"hidden"`
+		Name       string             `json:"name"`
+		Summary    string             `json:"summary"`
+		URL        string             `json:"url"`
+		Render     bool               `json:"render"` // For forcing render if needed
+		Keywords   []string           `json:"keywords"`
+		Metrics    []Metric           `json:"metrics"`
+		Highlights []Text             `json:"highlights"`
+		Items      []PortfolioSubItem `json:"items"`
+		Hidden     bool               `json:"hidden"`
+	}
+	PortfolioSubItem struct {
+		Title   string   `json:"title"`
+		Tag     string   `json:"tag"`
+		Text    string   `json:"text"`
+		Metrics []Metric `json:"metrics"`
 	}
 	Metric struct {
 		Label  string `json:"label"`
