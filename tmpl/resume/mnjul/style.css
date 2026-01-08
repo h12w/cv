@@ -530,6 +530,35 @@ h2 {
   padding: 0;
 }
 
+#projects {
+  line-height: 1.4;
+}
+
+#projects .sidebar-project {
+  margin-bottom: 0.18in;
+}
+
+#projects .project-title {
+  font-weight: 600;
+}
+
+#projects .project-url {
+  font-size: 9pt;
+  color: #666;
+  margin-top: 2pt;
+}
+
+#projects .project-highlights {
+  margin: 6pt 0 0;
+  padding-left: 10pt;
+}
+
+#projects .project-highlights li {
+  list-style-type: disc;
+  margin: 0 0 3pt;
+  text-align: left;
+}
+
 /* disclainer positioning */
 #sidebar {
   position: relative;

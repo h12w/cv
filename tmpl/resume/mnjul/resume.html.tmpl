@@ -117,40 +117,6 @@
             </section>
             <section class="main-block">
               <h2>
-                <i class="fa fa-github"></i>{{.Headings.Projects}}
-              </h2>
-              {{- range .Projects}}
-              {{- if not .Hidden}}
-              <section class="blocks">
-                <div class="date">
-                {{- if eq .StartDate .EndDate}}
-                  <span>{{.StartDate}}</span>
-                {{- else -}}
-                  <span>{{.EndDate}}</span><span>{{.StartDate}}</span>
-                {{- end -}}
-                </div>
-                <div class="decorator"></div>
-                <div class="details">
-                  <header>
-                    <h3>{{.Name}}</h3>
-                    <span class="project-url">{{.URL | markdown}}</span>
-                  </header>
-                  <div>
-                    <ul>
-                      {{- range .Highlights}}
-                      {{- if not .Hidden}}
-                      <li>{{. | markdown}}</li>
-                      {{- end -}}
-                      {{- end -}}
-                    </ul>
-                  </div>
-                </div>
-              </section>
-              {{- end -}}
-              {{- end -}}
-            </section>
-            <section class="main-block">
-              <h2>
                 <i class="fa fa-graduation-cap"></i>{{.Headings.Education}}
               </h2>
               {{- range .Education}}
@@ -193,13 +159,39 @@
               {{- range .Skills}}
               {{- if not .Hidden}}
               <ul>
-                <li class="skill-name">{{.Name}}</li>
+              <li class="skill-name">{{.Name}}</li>
                 {{- range .Keywords}}
                 <li>{{.}}</li>
                 {{- end -}}
               </ul>
               {{- end -}}
               {{- end -}}
+            </div>
+            <div class="side-block" id="projects">
+              <h1>
+                {{.Headings.Projects}}
+              </h1>
+              {{- range .Projects}}
+              {{- if not .Hidden}}
+              <div class="sidebar-project">
+                <div class="project-title">
+                  {{.Name}}
+                </div>
+                {{- if .URL}}
+                <div class="project-url">{{.URL | markdown}}</div>
+                {{- end}}
+                {{- if .Highlights}}
+                <ul class="project-highlights">
+                  {{- range .Highlights}}
+                  {{- if not .Hidden}}
+                  <li>{{. | markdown}}</li>
+                  {{- end -}}
+                  {{- end -}}
+                </ul>
+                {{- end}}
+              </div>
+              {{- end}}
+              {{- end}}
             </div>
             <div class="side-block" id="disclaimer">
               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by <code><a href="https://h12.io/cv">h12.io/cv</a></code></p>
