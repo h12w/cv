@@ -504,6 +504,8 @@ h2 {
   color: var(--section-color);
   margin-top: 0;
   margin-bottom: 18pt;
+  break-after: avoid;
+  page-break-after: avoid;
 }
 
 .side-block+.side-block {
@@ -547,46 +549,81 @@ h2 {
   font-size: 11pt;
 }
 
-#skills {
-  line-height: 1.5;
+/* Sidebar Skills */
+#skills .skill-group {
+  margin-bottom: 8pt;
 }
 
 #skills .skill-name {
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 9pt;
+  color: #555;
+  margin-bottom: 3pt;
+  display: block;
 }
 
-#skills ul {
-  margin: 0.05in 0 0.15in;
+#skills .skill-items {
+  margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4pt;
+  list-style: none;
 }
 
-#projects {
-  line-height: 1.4;
+#skills .skill-items li {
+  background-color: #eef2f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 8pt;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+  font-family: "Source Code Pro", monospace;
 }
 
-#projects .sidebar-project {
+/* Sidebar Projects (Open Source) & Awards */
+#projects .sidebar-project,
+#awards .sidebar-project {
   margin-bottom: 0.18in;
 }
 
-#projects .project-title {
+#projects .project-title,
+#awards .project-title {
   font-weight: 600;
+  font-size: 9.5pt;
+  color: #333;
+  line-height: 1.2;
 }
 
-#projects .project-url {
+#projects .project-url,
+#awards .project-url {
   font-size: 9pt;
   color: #666;
-  margin-top: 2pt;
+  margin-top: 1pt;
+  display: block;
 }
 
-#projects .project-highlights {
-  margin: 6pt 0 0;
-  padding-left: 10pt;
+#projects .project-highlights,
+#awards .project-highlights {
+  margin: 4pt 0 0;
+  padding-left: 0;
+  list-style: none;
 }
 
-#projects .project-highlights li {
-  list-style-type: disc;
+#projects .project-highlights li,
+#awards .project-highlights li {
+  list-style-type: none;
   margin: 0 0 3pt;
   text-align: left;
+  line-height: 1.35;
+  font-size: 9pt;
+  color: #444;
+}
+
+#projects .project-highlights li::before,
+#awards .project-highlights li::before {
+  content: none;
 }
 
 /* disclainer positioning */
@@ -764,10 +801,15 @@ a {
 
 /* Pagination Control */
 section.blocks,
-div.side-block,
 div.portfolio-item,
 h2,
 h3 {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+div.sidebar-project,
+div.skill-group {
   break-inside: avoid;
   page-break-inside: avoid;
 }

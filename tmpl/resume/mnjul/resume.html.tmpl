@@ -197,12 +197,14 @@
               </h1>
               {{- range .Skills}}
               {{- if not .Hidden}}
-              <ul>
-              <li class="skill-name">{{.Name}}</li>
-                {{- range .Keywords}}
-                <li>{{.}}</li>
-                {{- end -}}
-              </ul>
+              <div class="skill-group">
+                <div class="skill-name">{{.Name}}</div>
+                <ul class="skill-items">
+                  {{- range .Keywords}}
+                  <li>{{.}}</li>
+                  {{- end -}}
+                </ul>
+              </div>
               {{- end -}}
               {{- end -}}
             </div>
