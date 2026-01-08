@@ -1,6 +1,6 @@
 @page {
   size: a4 portrait;
-  margin: 10mm 0;
+  margin: 20mm 0;
 }
 
 * {
@@ -76,7 +76,7 @@ li {
 #title {
   /* Removed grid-column/row properties */
   /* Reduced margin-top because we now have @page margin of 10mm (~0.4in) */
-  margin-top: 0.1in;
+  margin-top: 0;
   margin-bottom: 0.15in;
   margin-left: var(--horizontal-margin);
   margin-right: var(--horizontal-margin);
@@ -85,8 +85,8 @@ li {
 
 /* New Contact Header Styles */
 #contact-header {
-  margin-top: 12pt;
-  padding-top: 12pt;
+  margin-top: 8pt;
+  padding-top: 8pt;
   border-top: 1px solid #eee;
 }
 
@@ -129,9 +129,9 @@ li {
 .portfolio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20pt;
+  gap: 12pt;
   /* Increased gap for cleaner look */
-  margin-top: 10pt;
+  margin-top: 8pt;
   break-inside: auto;
   /* Allow the grid container itself to break */
 }
@@ -140,7 +140,7 @@ li {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 15pt;
+  padding: 10pt;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -287,7 +287,7 @@ h2 {
   font-size: 13pt;
   /* color: #555; */
   color: var(--section-color);
-  margin-top: var(--section-margin);
+  margin-top: 0;
 }
 
 #main h2>i {
@@ -498,7 +498,7 @@ h2 {
   font-size: 13pt;
   text-transform: uppercase;
   color: var(--section-color);
-  margin-top: var(--section-margin);
+  margin-top: 0;
   margin-bottom: 18pt;
 }
 
