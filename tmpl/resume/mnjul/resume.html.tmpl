@@ -73,7 +73,16 @@
               {{- range .Items}}
               <div class="portfolio-subitem" id="portfolio-item-{{.Title | slugify}}">
                  <div class="subitem-header">
-                    <span class="subitem-title">{{.Title}}</span>
+                    <span class="subitem-title">
+                      {{- if .URL -}}
+                      <a href="{{.URL}}" class="title-link">
+                        {{.Title}}
+                        <i class="fa fa-external-link link-icon" aria-hidden="true"></i>
+                      </a>
+                      {{- else -}}
+                      {{.Title}}
+                      {{- end -}}
+                    </span>
                     <span class="subitem-tag">{{.Tag}}</span>
                  </div>
                  <div class="subitem-text">{{.Text | markdown}}</div>
@@ -216,11 +225,14 @@
               {{- if not .Hidden}}
               <div class="sidebar-project">
                 <div class="project-title">
+                  {{- if .URL -}}
+                  <a href="{{.URL}}" class="title-link">
+                    {{.Name}} <i class="fa fa-external-link link-icon" aria-hidden="true"></i>
+                  </a>
+                  {{- else -}}
                   {{.Name}}
+                  {{- end -}}
                 </div>
-                {{- if .URL}}
-                <div class="project-url">{{.URL | markdown}}</div>
-                {{- end}}
                 {{- if .Highlights}}
                 <ul class="project-highlights">
                   {{- range .Highlights}}

@@ -766,6 +766,29 @@ a {
   margin-left: 8pt;
 }
 
+.title-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+  color: var(--section-color);
+}
+
+.title-link:hover .link-icon {
+  color: var(--section-color);
+  text-decoration: none;
+}
+
+.link-icon {
+  font-size: 0.75em;
+  color: #aaa;
+  margin-left: 4px;
+  vertical-align: 1px;
+}
+
 .subitem-text {
   font-size: 9pt;
   color: #444;

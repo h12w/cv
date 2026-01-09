@@ -161,6 +161,7 @@ type (
 	PortfolioSubItem struct {
 		Title   string   `json:"title"`
 		Tag     string   `json:"tag"`
+		URL     string   `json:"url"`
 		Text    string   `json:"text"`
 		Metrics []Metric `json:"metrics"`
 	}
