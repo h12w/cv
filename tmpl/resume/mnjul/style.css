@@ -1,6 +1,7 @@
 @page {
   size: a4 portrait;
-  margin: 20mm 0;
+  /* zero margins so backgrounds can bleed; inner padding restores text margins */
+  margin: 0;
 }
 
 * {
@@ -11,6 +12,7 @@
   --page-count: 2;
   --page-width: 8.27in;
   --page-height: 11.69in;
+  --page-padding-vertical: 20mm;
   --horizontal-margin: 0.55in;
   --right-margin: var(--horizontal-margin);
   --main-width: 5.35in;
@@ -42,16 +44,53 @@
 }
 
 body {
-  width: var(--page-width);
-  height: auto;
   font-family: "Outfit", sans-serif;
   font-weight: normal;
   line-height: 1.3;
   color: #444;
   hyphens: auto;
-  background: linear-gradient(to right, #fff 0%, #fff var(--main-width), var(--sidebar-color) var(--main-width), var(--sidebar-color) 100%);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+}
+
+.page {
+  position: relative;
+  width: var(--page-width);
+  min-height: var(--page-height);
+  padding: var(--page-padding-vertical) 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page--intro {
+  page-break-after: always;
+}
+
+.page--body {
+  min-height: calc(var(--page-height) * 2);
+  background-image: linear-gradient(to right,
+      #fff 0,
+      #fff var(--main-width),
+      var(--sidebar-color) var(--main-width),
+      var(--sidebar-color) calc(100% - var(--right-margin)),
+      #fff calc(100% - var(--right-margin)),
+      #fff 100%);
+  background-repeat: repeat-y;
+  background-size: 100% var(--page-height);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ensure bleed even though content is padded for margins */
+.page--body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: -1;
 }
 
 h1,
@@ -216,6 +255,8 @@ li {
   width: 100%;
   padding-right: 0;
   /* ensure it fits */
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 #limbo {
@@ -252,6 +293,11 @@ li {
 
 .main-block+.main-block {
   margin-top: 30pt;
+}
+
+.main-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 /** big title **/
@@ -522,6 +568,8 @@ h2 {
 .side-block+.side-block {
   margin-top: 30pt;
 }
+
+
 
 .contact.fa {
   margin-right: 5px;
