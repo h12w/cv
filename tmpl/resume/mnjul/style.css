@@ -690,24 +690,29 @@ h2 {
   position: relative;
 }
 
-#disclaimer {
+#sidebar-qrcode {
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-#disclaimer {
+#sidebar-qrcode .label {
   font-size: 8pt;
-  font-style: italic;
-  line-height: 1.1;
-  text-align: right;
-  color: var(--disclaimer-color);
+  color: #888;
+  font-family: "Fira Code", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-#disclaimer code {
-  color: var(--disclaimer-color);
-  font-family: "Fira Code", monospace;
-  font-weight: normal;
-  font-style: normal;
+#sidebar-qrcode img {
+  width: 60px;
+  height: auto;
+  border-radius: 4px;
+  opacity: 0.9;
 }
 
 a {
