@@ -44,7 +44,7 @@
 body {
   width: var(--page-width);
   height: auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: normal;
   line-height: 1.3;
   color: #444;
@@ -103,7 +103,7 @@ li {
 }
 
 #contact-header li {
-  font-family: "Source Code Pro";
+  font-family: "Fira Code", monospace;
   font-size: 9pt;
   color: #555;
   display: flex;
@@ -135,7 +135,7 @@ li {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
   grid-auto-rows: 1fr;
-  gap: 12pt;
+  gap: 10pt;
   /* Increased gap for cleaner look */
   margin-top: 18pt;
   break-inside: auto;
@@ -150,7 +150,7 @@ li {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 10pt;
+  padding: 8pt;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -202,7 +202,7 @@ li {
 }
 
 #portfolio-section .portfolio-item .details .summary {
-  font-size: 9.5pt;
+  font-size: 9pt;
   line-height: 1.4;
   color: #555;
   margin-bottom: 8pt;
@@ -266,7 +266,7 @@ h2 {
 
 #title h1 {
   font-weight: normal;
-  font-size: 18pt;
+  font-size: 22pt;
   line-height: 1.5;
   margin-bottom: 12pt;
 }
@@ -299,7 +299,7 @@ h2 {
   /* XXX: 0.5px for aligning fx printing */
   left: calc((var(--date-block-width) + var(--decorator-horizontal-margin)));
   font-weight: normal;
-  font-size: 13pt;
+  font-size: 14pt;
   /* color: #555; */
   color: var(--section-color);
   margin-top: 0;
@@ -530,7 +530,7 @@ h2 {
 #contact ul {
   margin-top: 0.05in;
   padding-left: 0;
-  font-family: "Source Code Pro";
+  font-family: "Fira Code", monospace;
   font-weight: normal;
   line-height: 1.75;
 }
@@ -590,7 +590,7 @@ h2 {
   color: #333;
   margin: 0;
   line-height: 1.3;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Fira Code", monospace;
 }
 
 /* Sidebar Projects (Open Source) & Awards */
@@ -657,7 +657,7 @@ h2 {
 
 #disclaimer code {
   color: var(--disclaimer-color);
-  font-family: "Source Code Pro";
+  font-family: "Fira Code", monospace;
   font-weight: normal;
   font-style: normal;
 }
@@ -676,7 +676,7 @@ a {
 }
 
 .metric {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Fira Code", monospace;
   font-size: 8pt;
   background: #f0f4f8;
   color: #333;
@@ -755,8 +755,8 @@ a {
 }
 
 .subitem-tag {
-  font-family: "Source Code Pro", monospace;
-  font-size: 7.5pt;
+  font-family: "Fira Code", monospace;
+  font-size: 8pt;
   color: #888;
   background-color: #f7f7f7;
   padding: 1px 5px;
