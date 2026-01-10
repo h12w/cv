@@ -32,6 +32,11 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// Validate references
+	if err := validateReferences(&cvData); err != nil {
+		log.Fatal(err)
+	}
+
 	tmpl, err := template.New(path.Base(opt.Template)).Funcs(template.FuncMap{
 		"markdown": markdown,
 		"slugify":  slugify,
@@ -63,4 +68,32 @@ func slugify(s string) string {
 	s = strings.ReplaceAll(s, "&", "and")
 	s = strings.ReplaceAll(s, "/", "-or-")
 	return s
+}
+
+func validateReferences(cvData *cv.CV) error {
+	// Build a map of all portfolio sub-item titles (slugified)
+	portfolioTitles := make(map[string]bool)
+	for _, portfolio := range cvData.Portfolio {
+		for _, item := range portfolio.Items {
+			slug := slugify(item.Title)
+			portfolioTitles[slug] = true
+		}
+	}
+
+	// Check all references in Work entries
+	var missingRefs []string
+	for _, work := range cvData.Work {
+		for _, ref := range work.RefItems {
+			slug := slugify(ref)
+			if !portfolioTitles[slug] {
+				missingRefs = append(missingRefs, fmt.Sprintf("reference '%s' in work entry '%s' at %s", ref, work.Position, work.Company))
+			}
+		}
+	}
+
+	if len(missingRefs) > 0 {
+		return fmt.Errorf("references not found:\n  %s", strings.Join(missingRefs, "\n  "))
+	}
+
+	return nil
 }
